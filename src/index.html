@@ -9,10 +9,10 @@
     <title>阪森 ASAGO</title>
 
     <!-- Vue 開發模式 -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> -->
 
     <!-- Vue 正式上線 -->
-    <!-- <script src="vendor/vue.min.js"></script> -->
+    <script src="vendor/vue.min.js"></script>
 
     <!-- AOS 開發模式-->
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
@@ -31,22 +31,20 @@
     <div id="app">
         <div class="wrapper" ref="wrapper">
             <!-- opening -->
-            <start-component :cloud-Animate="cloudAnimate" :is-Complete="isComplete"></start-component>
-            <!-- <div class="m-opening" :class="{ complete : isComplete }">
+            <div class="m-opening" :class="{ complete : isComplete }">
                 <div class="m-opening__word">
                     <div class="m-opening__word-asa">
                         <img src="img/asa.svg" alt="">
                     </div>
-                    <div class="m-opening__word-go" @click="cloudAnimate">
-                        <img src="img/go.svg" alt="">
+                    <div class="m-opening__word-go" @click="cloudAnimate()">
+                        <img class="m-opening__word-go_go" src="img/go.svg" alt="" >
                         <svg width="83px" height="18px" class="m-opening__word-line">
                             <path class="animated" stroke-dashoffset="0" stroke-dasharray="30" stroke="white" stroke-width="1px" d="m0 18L83 18" />
                         </svg>
                         <img class="m-opening__word-go_cloud" src="img/cloud.svg" alt="">
                     </div>
                 </div>
-            </div> -->
-
+            </div>
             <!-- header -->
             <header data-scroll-header class="l-header" id="gotop" :class="{ scrollDown : isScrollDown }">
                 <a @click="refresh" class="l-header__logo">
