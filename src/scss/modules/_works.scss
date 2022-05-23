@@ -125,7 +125,6 @@
         &-bottom {
 
             @include content-row;
-            align-items: center;
             justify-content: space-between;
             position: absolute;
             right: 0;
@@ -157,6 +156,7 @@
             &_three {
 
                 margin-right: 20px;
+                width: 31.77%;
 
                     @include RWD(lg){
             
@@ -182,10 +182,13 @@
 
             &_four {
 
+                width: calc(100% - 31.77% - 20px);
+
                 @include RWD(lg){
             
                     height: 100%;
                     margin-bottom: 10px;
+                    width: auto;
 
                     @media (max-device-width: 1024px) and (orientation: landscape) {
 

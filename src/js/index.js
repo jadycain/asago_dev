@@ -11,6 +11,35 @@ Vue.use(AOS)
 Vue.use(VueAxios, axios)
 
 
+Vue.component("start-component", {
+    template: `<div class="m-opening" :class="{ complete : isComplete }">
+        <div class="m-opening__word">
+            <div class="m-opening__word-asa">
+                <img src="img/asa.svg" alt="">
+            </div>
+            <div class="m-opening__word-go" @click="cloudAnimate()">
+                <img class="m-opening__word-go_go" src="img/go.svg" alt="" >
+                <svg width="83px" height="18px" class="m-opening__word-line">
+                    <path class="animated" stroke-dashoffset="0" stroke-dasharray="30" stroke="white" stroke-width="1px" d="m0 18L83 18" />
+                </svg>
+                <img class="m-opening__word-go_cloud" src="img/cloud.svg" alt="">
+            </div>
+        </div>
+    </div>`,
+    props: {
+        cloudAnimate: {
+            type: Function,
+            required: true
+        },
+        isComplete: {
+            type: Boolean,
+            default: 'complete',
+            required: false
+        }
+    },
+})
+
+
 const app = new Vue({
     el: '#app',
     data() {
