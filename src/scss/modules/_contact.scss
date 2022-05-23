@@ -1,0 +1,263 @@
+.m-contact {
+
+    @include content-center-column;
+    background-color: $bgGray;
+    padding-top: 169px;
+    border-radius: 8.33vw 8.33vw 0 0;
+
+    @include RWD(lg){
+        border-radius: 11.71875vw 11.71875vw 0 0;
+        padding-top: 124px;
+        
+    }
+
+    @include RWD(sm){
+        border-radius: 16.66vw 16.66vw 0 0;
+        padding-top: 44px;
+        
+        
+    }
+
+    &__title {
+
+        width: 44.58vw;
+
+
+        @include RWD(lg){
+            width: 100%;
+            
+        }
+    }
+
+    &__detail {
+
+        width: 44.58vw;
+        font-size: 32px;
+        font-family: $NotoSansTC;
+        padding: 27px 0 20px 0;
+
+        @include RWD(lg){
+
+            width: 100%;
+            font-size: clamp(16px, 2.73vw, 28px);
+            padding: 16px 0 40px 0;
+            
+        }
+
+        @include RWD(sm){
+            
+            font-size: 16px;
+            padding: 10px 0 12px 0;
+            
+        }
+    }
+
+    &__form {
+
+        @include content-center-column;
+        padding-bottom: 105px;
+        margin: 0;
+
+        @include RWD(lg){
+            width: 100%;
+            padding-bottom: 99px;
+            
+        }
+
+        @include RWD(sm){
+
+            padding-bottom: 49px;
+            
+        }
+
+        &-item {
+
+            @include content-column;
+            justify-content: flex-start;
+            margin: 12px 0 ;
+
+            @include RWD(lg){
+                width: 100%;
+                
+            }
+
+            @include RWD(lg){
+                margin: 3.5px 0 ;
+                
+            }
+
+            &:first-child {
+
+                margin-top: 0;
+            }
+
+            &:last-child {
+
+                margin: calc(55px - 12px) 0 0 auto;
+
+                @include RWD(sm){
+
+                    margin: calc(30px - 7px) 0 0 auto;
+                    
+                }
+            }
+
+            .label {
+
+                font-size: 20px;
+                font-family: $NotoSansTC;
+                color: $fontGray;
+                padding-bottom: 5px;
+
+                @include RWD(sm){
+
+                    font-size: 13px;
+                    
+                }
+            }
+
+            .erroLabel {
+
+                color: $red;
+            
+            }
+            
+
+            
+
+
+            &_name, &_email {
+
+                height: 80px;
+                width: 44.58vw;
+                font-size: 24px;
+                padding: 0 40px;
+                font-family: $NotoSansTC;
+                border: 1px solid #DADADA;
+                border-radius: 5px;
+                font-weight: $font-weight-regular;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+
+                &::placeholder {
+                    font-family: $Mulish;
+                }
+
+                @include RWD(lg){
+                    width: 100%;
+                    
+                }
+    
+                @include RWD(sm){
+
+                    font-size: 16px;
+                    height: 40px;
+                    padding: 10px 20px;
+                    
+                }
+
+                &:focus {
+    
+                    outline: none;
+                }
+    
+                &::placeholder { 
+    
+                    color: $fontGray;
+                  
+                }
+
+            }
+
+            &_msg {
+
+                height: 500px;
+                width: 44.58vw;
+                font-size: 24px;
+                padding: 25px 40px;
+                font-family: $NotoSansTC;
+                resize: none;
+                border: 1px solid #DADADA;
+                border-radius: 5px;
+                font-weight: $font-weight-regular;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+
+                &::placeholder {
+                    font-family: $Mulish;
+                }
+
+                @include RWD(lg){
+
+                    width: 100%;
+                    
+                }
+
+                @include RWD(sm){
+
+                    font-size: 16px;
+                    height: 200px;
+                    padding: 10px 20px;
+                    
+                }
+    
+                &:focus {
+    
+                    outline: none;
+                }
+    
+                &::placeholder { 
+    
+                    color: $fontGray;
+                  
+                }
+            }
+
+            &_submit {
+
+                margin-left: auto;
+                width: 272px;
+                height: 80px;
+                font-size: 24px;
+                background-color: $bgGray;
+                border: 1px solid #DADADA;
+                border-radius: 5px;
+                cursor: pointer;
+                color: $fontGray;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+
+                @include RWD(sm){
+
+                    width: 116px;
+                    height: 40px;
+                    font-size: 16px;
+                    
+                }
+            }
+
+        }
+
+
+    }
+
+
+}
+
+
+.erroInput {
+
+    border: 1px solid $red;
+
+}
+
+.formCorrect {
+
+    background-color: $yellow;
+    color: $white;
+    border: 1px solid $yellow;
+
+}

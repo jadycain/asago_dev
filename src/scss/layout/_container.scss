@@ -1,0 +1,20 @@
+.l-container {
+
+    @include content-center-column;
+    width: 75vw;
+
+    @include RWD(lg){
+        width: clamp(280px, 82.12vw, 841px);
+        
+    }
+
+    @include RWD(sm){
+        width: clamp(280px, 77.77vw, 100%);  
+        
+    }
+
+    @include RWD(ss){
+        width: 77.77vw; 
+        
+    }
+}

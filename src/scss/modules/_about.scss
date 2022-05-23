@@ -1,0 +1,93 @@
+.m-about {
+
+    @include content-center-column;
+    padding-bottom: 255px;
+
+    @include RWD(lg){
+            
+        padding-bottom: 157px;
+         
+    }
+
+    @include RWD(sm){
+            
+        padding-bottom: 49px;
+         
+    }
+
+    &__title {
+
+        padding-bottom: 107px;
+
+        @include RWD(lg){
+            
+            padding-bottom: 72px;
+             
+        }
+
+        @include RWD(sm){
+            
+            padding-bottom: 42px;
+             
+        }
+    }
+
+    &__mark {
+
+        padding-bottom: 38px;
+
+
+        @include RWD(lg){
+            
+            padding-bottom: 45px;
+            width: 100px;
+             
+        }
+
+        @include RWD(lg){
+            
+            width: 65px;
+            padding-bottom: 28px;
+             
+        }
+    }
+
+    &__content {
+
+        text-align: center;
+        font-size: 30px;
+        font-family: $NotoSansTC;
+        font-weight: $font-weight-regular;
+        letter-spacing: 1px;
+
+        @include RWD(lg){
+            
+            font-size: clamp(16px, 2.73vw, 28px);
+             
+        }
+
+        @include RWD(sm){
+
+            font-size: 16px;
+             
+        }
+
+        &-first {
+
+            @include content-center-row;
+            flex-wrap: wrap;
+
+
+            @include RWD(sm){
+
+                flex-direction: column;
+
+                p:nth-child(2) {
+
+                    display: none;
+                }
+                 
+            }
+        }
+    }
+}

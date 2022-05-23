@@ -1,0 +1,65 @@
+.m-opening {
+
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    min-height: 100vh;
+    @include content-center-row;
+    background-color: $black;
+    position: absolute;
+    width: 100%;
+    z-index: 50;
+    overflow: hidden;
+
+    &__word {
+
+        @include content-center-row;
+        position: relative;
+
+        @include RWD(sm) {
+            margin-top: calc((var(--vh, 1vh) * 100) - 100vh);
+        }
+
+        &-asa {
+
+            padding-right: 20px;
+        }
+
+        &-line {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+
+            path {
+
+                opacity: 0;
+            }
+
+        }
+
+        &-go {
+
+            position: relative;
+            cursor: pointer;
+
+            &_cloud {
+
+                position: absolute;
+                top:0;
+                right:0;
+                bottom:0;
+                left:0;
+                margin:auto;
+                opacity: 0;
+            }
+        }
+
+    }
+}
+
+
+
+.complete {
+
+    z-index: -50;
+    
+}

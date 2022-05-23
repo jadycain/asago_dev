@@ -1,0 +1,129 @@
+.m-modal {
+    
+    display: none; 
+    position: fixed;
+    z-index: -5; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    min-height: 100vh;
+    overflow: auto; 
+    background-color: rgba(224,224,224,0.5); 
+    @include content-column;
+    align-items: center;
+
+    &__container {
+
+        background-color: $white;
+        width: 620px;
+        height: 400px;
+        // width: 32.29vw;
+        // height: 27.77vw;
+        // width: clamp(248px, 32.29vw, 620px);
+        // height: clamp(348px, 27.77vw, 400px);
+        // width: clamp(248px, 32.29vw, 620px); 
+        // height: clamp(348px, 48.78vh, 400px); 
+        border-radius: 20px;
+        @include content-center-column;
+        margin: 30.48vh auto 0 auto;
+        box-shadow: 0px 0px 20px 0px rgba(204, 204, 204, 0.5);
+       
+        
+
+        @include RWD(lg) {
+
+            width: 60.54vw;
+            height: 39.0625vw;
+    
+        }
+
+        @include RWD(md){
+            
+            width: 68.88vw;
+            height: 50vh;
+            margin: auto;
+            
+             
+        }
+
+
+        @include RWD(sm){
+            
+            width: clamp(248px, 68.88vw, 68.88vw);
+            height: clamp(348px, 96.66vw, 96.66vw);
+            margin-top: 24.233vh;
+             
+        }
+
+        @media screen and (min-width:428px) and (max-width:1024px) and (orientation:landscape) {
+            width: 68.88vw;
+            height: 80vh;
+            margin: auto;
+            
+        }
+
+
+        
+
+        &-img {
+
+            // width: 12.0833vw;
+            width: 174px;
+            margin-bottom: 32px;
+
+        }
+
+        &-mainmsg {
+
+            width: 167px;
+            margin-bottom: 12px;
+
+            @include RWD(sm){
+            
+                width: 36.3889vw;
+                 
+            }
+            
+        }
+
+        &-submsg {
+
+            font-size: 13px;
+            font-family: $Mulish;
+            color: $fontGray;
+            margin-bottom: 32px;
+            text-align: center;
+
+            @include RWD(sm){
+            
+                width: 37.5vw;
+                font-size: 3.055vw;
+                  
+            }
+        }
+
+        &-btn {
+
+            width: 220px;
+            height: 60px;
+            background-color: $yellow;
+            color: $white;
+            border: none;
+            border-radius: 3px;
+            font-size: 22px;
+            font-family: $Mulish;
+            font-weight: $font-weight-regular;
+            cursor: pointer;
+
+            @include RWD(sm){
+            
+                width: 55.55vw;
+                font-size: 5vw;
+                height: 13.33vw;
+                  
+            }
+        }
+    }
+}

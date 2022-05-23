@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    <meta name='theme-color' content='#0C160B'/>
+    <title>阪森 ASAGO</title>
+
+    <!-- Vue 開發模式 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+    <!-- Vue 正式上線 -->
+    <!-- <script src="vendor/vue.min.js"></script> -->
+
+    <!-- AOS 開發模式-->
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
+
+    <!-- AOS 正式上線-->
+    <link rel="stylesheet" href="vendor/aos.css">
+
+    <!-- qs -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.3/qs.min.js" integrity="sha512-juaCj8zi594KHQqb92foyp87mCSriYjw3BcTHaXsAn4pEB1YWh+z+XQScMxIxzsjfM4BeVFV3Ij113lIjWiC2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    
+
+    
+
+</head>
+<body>
+    <div id="app">
+        <div class="wrapper" ref="wrapper">
+            <!-- opening -->
+            <start-component :cloud-Animate="cloudAnimate" :is-Complete="isComplete"></start-component>
+            <!-- <div class="m-opening" :class="{ complete : isComplete }">
+                <div class="m-opening__word">
+                    <div class="m-opening__word-asa">
+                        <img src="img/asa.svg" alt="">
+                    </div>
+                    <div class="m-opening__word-go" @click="cloudAnimate">
+                        <img src="img/go.svg" alt="">
+                        <svg width="83px" height="18px" class="m-opening__word-line">
+                            <path class="animated" stroke-dashoffset="0" stroke-dasharray="30" stroke="white" stroke-width="1px" d="m0 18L83 18" />
+                        </svg>
+                        <img class="m-opening__word-go_cloud" src="img/cloud.svg" alt="">
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- header -->
+            <header data-scroll-header class="l-header" id="gotop" :class="{ scrollDown : isScrollDown }">
+                <a @click="refresh" class="l-header__logo">
+                    <img src="img/logo.png" alt="">
+                </a>
+                <ul class="l-header__menu" :class="{ active : isActive }">
+                    <li class="l-header__menu-item">
+                        <a data-scroll href="#services">Services</a>
+                    </li>
+                    <li class="l-header__menu-item">
+                        <a data-scroll href="#works">Works</a>
+                    </li>
+                    <li class="l-header__menu-item">
+                        <a data-scroll href="#about">About us</a>
+                    </li>
+                    <li class="l-header__menu-item">
+                        <a data-scroll href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <div class="l-header__hamburger" :class="{ active : isActive }" @click="toggleHam()" >
+                    <span class="l-header__hamburger-hambar"></span>
+                    <span class="l-header__hamburger-hambar"></span>
+                    <span class="l-header__hamburger-hambar"></span>
+                </div>
+            </header>
+
+            <!-- pv -->
+            <section class="m-pv" >
+                <div class="m-pv__main">
+                    <div class="m-pv__main-img">
+                        <transition-group tag="div" class="img-slider" :name="back ? 'slideback' : 'slide'">
+                            <div class="img-container" v-for="number in [currentSlide]" v-bind:key="number" >
+                                <img :src="currentSlideData.src" alt="">
+                            </div>
+                        </transition-group>
+                        <div class="m-pv__main-img_slogan">
+                            <div class="m-pv__main-img_slogan-main">
+                                <img src="img/slogan_main.svg" alt="">
+                            </div>
+                            <div class="m-pv__main-img_slogan-sub">
+                                <img src="img/slogan_sub.svg" alt="">
+                            </div>
+                        </div>
+                        <ul class="m-pv__main-img_squares" >
+                             <li class="m-pv__main-img_squares-square" @click="changeSlideImg(item.index-1)" v-for="item in slideClickData" :key="item.index" :class="[slideOnClick == item.index-1 ? 'm-pv__main-img_squares-square onClick' : '']"></li>
+                        </ul>
+                    </div>
+                    <div class="m-pv__main-word">
+                        <p>以數位為基礎</p>
+                        <p>品牌與內容服務為導向</p>
+                        <p>為你打造理想的作品</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- services -->
+            <section class="m-services" id="services">
+                <div class="l-container">
+                    <h3 class="m-services__title" data-aos="fade-zoom-in"
+                    data-aos-easing="ease-in-back"
+                    data-aos-offset="0" data-aos-duration="500">
+                        Services
+                    </h3>
+                    <div class="m-services__content" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+                        <div class="m-services__content-box">
+                            <img src="img/icon_1.png" alt="">
+                            <div class="m-services__content-box_word">
+                                <p class="en">UI/UX Design</p>
+                                <p class="ch">網站及App設計</p>
+                            </div>
+                        </div>
+                        <div class="m-services__content-box">
+                            <img src="img/icon_2.png" alt="">
+                            <div class="m-services__content-box_word">
+                                <p class="en">Brand Design</p>
+                                <p class="ch">品牌形象設計</p>
+                            </div>
+                        </div>
+                        <div class="m-services__content-box">
+                            <img src="img/icon_3.png" alt="">
+                            <div class="m-services__content-box_word">
+                                <p class="en">Digital Marketing</p>
+                                <p class="ch">數位產品企劃/行銷</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- works -->
+            <section class="m-works" id="works">
+                <div class="l-container"  data-aos="fade-up" data-aos-duration="1500">
+                    <h3 class="m-works__title" >
+                        Our works
+                    </h3>
+                    <div class="m-works__imgs">
+                        <div class="m-works__imgs-one">
+                            <img src="img/project_1.jpg" alt="">
+                        </div>
+                        <div class="m-works__imgs-two">
+                            <img src="img/project_2.jpg" alt="">
+                        </div>
+                        <div class="m-works__imgs-bottom">
+                            <div class="m-works__imgs-bottom_three">
+                                <img src="img/project_3.jpg" alt="">
+                            </div>
+                            <div class="m-works__imgs-bottom_four">
+                                <img src="img/project_4.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <a href="" class="m-works__more">
+                        Click here to read more
+                    </a>
+                </div>
+            </section>
+            <!-- about us -->
+            <section class="m-about" id="about">
+                <div class="l-container" data-aos="fade-up" data-aos-duration="1500">
+                    <h3 class="m-about__title">
+                        Asago
+                    </h3>
+                    <div class="m-about__mark">
+                        <img src="img/mark.png" alt="">
+                    </div>
+                    <div class="m-about__content">
+                        <div class="m-about__content-first">
+                            <p>阪森以數位為基礎</p>
+                            <p>，</p>
+                            <p>品牌與內容服務為導向的團隊</p>
+                        </div>
+                        <div class="m-about__content-first">
+                            <p>我們做點專案並以創造為樂</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- contact us -->
+            <section class="m-contact" id="contact">
+                <div class="l-container" data-aos="fade-up" data-aos-duration="1500">
+                    <h3 class="m-contact__title">
+                        Mail Us
+                    </h3>
+                    <p class="m-contact__detail">你有任何想法嗎？留下它，便能開啟我們的談話。</p>
+                    <ul class="m-contact__form">
+                        <li class="m-contact__form-item">
+                            <label class="label" for="name">如何稱呼你</label>
+                            <input class="m-contact__form-item_name" type="text" placeholder="Your name"  id="name" v-model="userName">
+                        </li>
+                        <li class="m-contact__form-item">
+                            <label class="label" for="email" :class="{ erroLabel : isError }">{{ emailAlert }}</label>
+                            <input class="m-contact__form-item_email" type="email" name="" id="email" placeholder="Email" v-model="userEmail" @blur="blur" :class="{ erroInput : isError }">
+                        </li>
+                        <li class="m-contact__form-item">
+                            <label class="label" for="message">訊息內容</label>
+                            <textarea class="m-contact__form-item_msg" placeholder="Leave your message here" id="message" v-model="userMsg"></textarea>
+                        </li>
+                        <li class="m-contact__form-item">
+                            <input type="button" @click="sendData" class="m-contact__form-item_submit" :class="{ formCorrect : isCorrect }"  :disabled="isDisabledFn" value="Submit"></input>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <!-- footer -->
+            <footer class="l-footer">
+                <div class="l-footer__bg"></div>
+                <div class="l-footer__container">
+                    <div class="l-footer__container-content">
+                        <div class="l-footer__container-content_contact">
+                            <div class="title">
+                                <img src="img/contact.svg" alt="">
+                            </div>
+                            <div class="content">
+                                <p>design@asago.com.tw</p>
+                                <a href="tel:+886-2-2678-6980#6009">02 26786980 #6009</a>
+                            </div>
+                        </div>
+                        <div class="l-footer__container-content_follow">
+                            <div class="title">
+                                <img src="img/follow.svg" alt="">
+                            </div>
+                            <div  class="content">
+                                <img src="img/behance.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <a data-scroll href="#gotop" class="l-footer__gotop"  :class="{ gotopHover : hoverStyle,  gotopBg : clickStyle}" @touchstart="addHover" @touchend="removeHover">
+                        <svg width="21" height="24" viewBox="0 0 21 24" fill="none">
+                            <path d="M1 10.5L10.5 1M10.5 1L20 10.5M10.5 1V23.5" stroke="#FFB930"/>
+                        </svg>
+                    </a>
+                    <div class="l-footer__container-copyright">
+                        <p>© 2022 ASAGO. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- modal -->
+            <div class="m-modal" :style="modalStyle">
+                <div class="m-modal__container">
+                    <img class="m-modal__container-img" src="img/check.png" alt="">
+                    <div class="m-modal__container-mainmsg">
+                        <img  src="img/thank.svg" alt="">
+                    </div>
+                    
+                    <p class="m-modal__container-submsg">我們已經收到你的訊息，並將儘速與你聯絡。</P>
+                    <button class="m-modal__container-btn" @click="toggleModal">回到主頁</button>
+                </div>
+            </div>
+
+        </div> <!-- wrapper end-->
+    </div> <!-- app end-->
+</body>
+</html>

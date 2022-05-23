@@ -1,0 +1,139 @@
+.m-services {
+
+    @include content-center-column;
+
+    &__title {
+
+        margin-right: auto;
+        padding: 168px 0;
+
+        @include RWD(lg){
+            
+            padding-top: 160px;
+            padding-bottom: 48px;
+        }
+
+        @include RWD(sm){
+            
+            padding: 40px 0;
+        }
+
+    }
+
+
+    &__content {
+
+        @include content-row;
+        justify-content: space-between;
+        // width: 62.7vw;
+        padding-bottom: 316px;
+        // flex-wrap: wrap;
+        // border: 1px solid red;
+        // width: clamp(1000px, 62.7vw, 1204px);
+
+        @include RWD(xl){
+            
+            flex-direction: column;
+            width: auto;
+            padding-bottom: 166px;
+            
+        }
+
+        @include RWD(sm){
+            
+            padding-bottom: 86px;
+            
+        }
+
+        &-box {
+
+            @include content-row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            // width: 33%;
+            margin-right: 6.25vw;
+
+            &:last-child {
+
+                margin-right: 0;
+            }
+
+            @include RWD(xl){
+            
+               margin: 24px 0;
+                
+            }
+
+            @include RWD(sm){
+            
+                margin: 21px 0;
+                width: 67.5vw;
+                 
+            }
+
+            
+
+            &_word {
+
+
+                .en {
+
+                    // font-size: 32px;
+                    font-size: clamp(22px, 1.66vw, 32px);
+                    font-weight: $font-weight-regular;
+                    font-family: $Mulish;
+                    
+                    @include RWD(xl){
+            
+                        font-size: clamp(22px, 2.73vw, 28px);
+                         
+                    }
+
+                    @include RWD(sm){
+            
+                        font-size: clamp(22px, 0.6vw, 28px);
+                         
+                    }
+                }
+
+                .ch {
+
+                    //font-size: 28px;
+                    font-size: clamp(18px, 1.4583vw, 28px);
+                    font-family: $NotoSansTC;
+                    font-weight: $font-weight-regular;
+                    color: $fontGray;
+                    letter-spacing: 1px;
+
+                    @include RWD(xl){
+            
+                        font-size: clamp(18px, 2.539vw, 26px);
+                         
+                    }
+
+                    @include RWD(sm){
+            
+                        font-size: clamp(18px, 0.5vw, 26px);
+                         
+                    }
+
+
+                }
+            }
+
+
+            img {
+
+                width: 62px;
+                margin-right: 1.5625vw;
+
+                @include RWD(sm){
+            
+                    margin-right: 19px;
+                    width: 50px;
+                     
+                }
+            }
+        }
+    }
+}

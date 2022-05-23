@@ -1,0 +1,130 @@
+// reboot
+
+* {
+    box-sizing: border-box;
+    color: $black;
+    
+}
+
+//
+//html
+//
+
+html {
+    margin: 0;
+    padding: 0;
+    
+}
+
+//
+//body
+//
+
+body {
+    margin: 0;
+    padding: 0;
+    padding-top: constant(safe-area-inset-top); /* iOS 11.0-iOS 11.1 */
+    padding-top: env(safe-area-inset-top); /*iOS 11.2 */
+    width: 100%;
+}
+
+.wrapper {
+
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow: hidden;
+    
+}
+
+#app {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+}
+
+//
+// Links
+// 
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+//
+// Img
+// 
+img {
+    display: block;
+    width: 100%;
+}
+
+
+//
+// List
+// 
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+h1 {
+
+    font-size: 128px;
+    margin: 0;
+    font-weight: $font-weight-extraBold;
+    font-family: $Mulish;
+
+    @include RWD(lg){
+      font-size: clamp(58px, 12.5vw, 128px);
+      
+    }
+}
+
+h2 {
+
+    font-size: 64px;
+    margin: 0;
+    font-weight: $font-weight-extraBold;
+    font-family: $Mulish;
+
+    @include RWD(lg){
+      font-size: clamp(28px, 6.25vw, 64px);
+      
+    }
+
+    @include RWD(sm){
+      font-size: clamp(28px, .77vw, 64px);
+      
+    }
+}
+
+h3 {
+
+    font-size: 48px;
+    margin: 0;
+    font-weight: $font-weight-bold;
+    font-family: $Mulish;
+
+    @include RWD(sm){
+      font-size: clamp(24px, 0.66vw, 48px);
+      
+    }
+}
+
+p {
+
+    margin: 0;
+    font-weight: $font-weight-regular;
+}
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
