@@ -23,29 +23,12 @@
     <!-- qs -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.3/qs.min.js" integrity="sha512-juaCj8zi594KHQqb92foyp87mCSriYjw3BcTHaXsAn4pEB1YWh+z+XQScMxIxzsjfM4BeVFV3Ij113lIjWiC2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     
-
-    
-
 </head>
 <body>
     <div id="app">
         <div class="wrapper" ref="wrapper">
             <!-- opening -->
-            <start-component :cloud-Animate="cloudAnimate" :is-Complete="isComplete"></start-component>
-            <!-- <div class="m-opening" :class="{ complete : isComplete }">
-                <div class="m-opening__word">
-                    <div class="m-opening__word-asa">
-                        <img src="img/asa.svg" alt="">
-                    </div>
-                    <div class="m-opening__word-go" @click="cloudAnimate">
-                        <img src="img/go.svg" alt="">
-                        <svg width="83px" height="18px" class="m-opening__word-line">
-                            <path class="animated" stroke-dashoffset="0" stroke-dasharray="30" stroke="white" stroke-width="1px" d="m0 18L83 18" />
-                        </svg>
-                        <img class="m-opening__word-go_cloud" src="img/cloud.svg" alt="">
-                    </div>
-                </div>
-            </div> -->
+            <opening-component @cloud="cloudAnimate" :is-Complete="isComplete"></opening-component>
 
             <!-- header -->
             <header data-scroll-header class="l-header" id="gotop" :class="{ scrollDown : isScrollDown }">
@@ -246,18 +229,7 @@
             </footer>
 
             <!-- modal -->
-            <div class="m-modal" :style="modalStyle">
-                <div class="m-modal__container">
-                    <img class="m-modal__container-img" src="img/check.png" alt="">
-                    <div class="m-modal__container-mainmsg">
-                        <img  src="img/thank.svg" alt="">
-                    </div>
-                    
-                    <p class="m-modal__container-submsg">我們已經收到你的訊息，並將儘速與你聯絡。</P>
-                    <button class="m-modal__container-btn" @click="toggleModal">回到主頁</button>
-                </div>
-            </div>
-
+            <modal-component @modal="toggleModal" :modal-Style="modalStyle"></modal-component>
         </div> <!-- wrapper end-->
     </div> <!-- app end-->
 </body>

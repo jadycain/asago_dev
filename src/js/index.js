@@ -2,22 +2,20 @@ import '../scss/all.scss';
 import SmoothScroll from 'smooth-scroll';
 import anime from 'animejs';
 import AOS from 'aos'; 
-import axios from 'axios'
-import VueAxios from 'vue-axios'
-
-// import Vue from 'vue';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
 
 Vue.use(AOS)
 Vue.use(VueAxios, axios)
 
-
-Vue.component("start-component", {
+// opening component
+Vue.component("opening-component", {
     template: `<div class="m-opening" :class="{ complete : isComplete }">
         <div class="m-opening__word">
             <div class="m-opening__word-asa">
                 <img src="img/asa.svg" alt="">
             </div>
-            <div class="m-opening__word-go" @click="cloudAnimate()">
+            <div class="m-opening__word-go" @click="callCloudAnimation">
                 <img class="m-opening__word-go_go" src="img/go.svg" alt="" >
                 <svg width="83px" height="18px" class="m-opening__word-line">
                     <path class="animated" stroke-dashoffset="0" stroke-dasharray="30" stroke="white" stroke-width="1px" d="m0 18L83 18" />
@@ -26,15 +24,42 @@ Vue.component("start-component", {
             </div>
         </div>
     </div>`,
+    methods: {
+        callCloudAnimation() {
+            this.$emit('cloud') 
+        }
+    },
     props: {
-        cloudAnimate: {
-            type: Function,
-            required: true
-        },
         isComplete: {
             type: Boolean,
             default: 'complete',
             required: false
+        }
+    },
+})
+
+// modal component
+Vue.component("modal-component", {
+    template: `<div class="m-modal" :style="modalStyle">
+        <div class="m-modal__container">
+            <img class="m-modal__container-img" src="img/check.png" alt="">
+            <div class="m-modal__container-mainmsg">
+                <img  src="img/thank.svg" alt="">
+            </div>
+            
+            <p class="m-modal__container-submsg">我們已經收到你的訊息，並將儘速與你聯絡。</P>
+            <button class="m-modal__container-btn" @click="callToggleMoal">回到主頁</button>
+        </div>
+    </div>`,
+    methods: {
+        callToggleMoal() {
+            this.$emit('modal')
+        }
+    },
+    props: {
+        modalStyle: {
+            type: Object,
+            required: true
         }
     },
 })
@@ -144,6 +169,9 @@ const app = new Vue({
         }
     },
     methods: {
+        selfUpdate(val) {
+            console.log(12)
+        },
         changeSlideImg(index) {
             const vm = this
             vm.slideOnClick =  index

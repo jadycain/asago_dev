@@ -1,6 +1,6 @@
 .l-header {
 
-   height:140px;
+   height: 140px;
    @include content-center-row;
    position: fixed;
    width: 100%;
@@ -15,27 +15,27 @@
        height: 86px;
    }
 
-   @include RWD(sm){
+    @include RWD(sm){
 
         height: 48px;
     }
 
-   &__logo {
+    &__logo {
 
-     width: 127px;
-     position: absolute;
-     left: 4.0625vw;
+        width: 127px;
+        position: absolute;
+        left: 4.0625vw;
 
-     @include RWD(lg){
-        width: 84px
+        @include RWD(lg){
+            width: 84px
+        }
+
+        @include RWD(sm){
+            width: 63px;
+            left: 20px
+        }
+
     }
-
-    @include RWD(sm){
-        width: 63px;
-        left: 20px
-        
-    }
-   }
 
     &__menu {
 
@@ -44,8 +44,7 @@
         font-size: 32px;
         font-weight: $font-weight-regular;
 
-        
-
+    
         @include RWD(lg){
 
             flex-direction: column;
@@ -92,7 +91,6 @@
 
         &-item {
 
-            
             margin:  0 31px;
 
             @include RWD(lg){
@@ -152,7 +150,6 @@
         &-hambar {
     
             display: inline-block;
-            
             width: 35px;
             background-color: $fontGray;
             height: 1px;
@@ -194,13 +191,10 @@
     
                     width: 11.25px;
                     
-                }
-            
+                }    
             }
         }
-    
     }
-
 }
 
 .scrollDown {
@@ -211,8 +205,6 @@
 }
 
 .l-header__hamburger.active {
-
-    
 
     span:nth-of-type(1) {
 
@@ -251,8 +243,5 @@
             transform:rotate(30deg) translateY(0) translateX(0) scale(1.1);
             
         }
-    
     }
-   
-
 }
