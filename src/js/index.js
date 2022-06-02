@@ -169,9 +169,6 @@ const app = new Vue({
         }
     },
     methods: {
-        selfUpdate(val) {
-            console.log(12)
-        },
         changeSlideImg(index) {
             const vm = this
             vm.slideOnClick =  index
@@ -548,7 +545,6 @@ const app = new Vue({
         },
         toggleModal() {
             const vm = this
-
             if(vm.isOpen) {
                 vm.isOpen = false
                 const body = document.body
